@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella Ilan | Portfolio</title>
+    <style>
+        /* CSS Variables for easy customization */
+        :root {
+        --sage: #9CAF88;
+        --dark-sage: #5e6d4e; 
+        --cream: #F9F7F0;
+        --clay: #D68C7A;
+        --charcoal: #333333;
+        --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #9CAF88 0%, #b8c9a7 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Quirky Floating Shapes Background */
+        .blob {
+            position: absolute;
+        background: var(--cream); 
+        filter: blur(60px);
+        z-index: -1;
+        opacity: 0.4;
+        border-radius: 50%;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--dark-sage);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* The underline */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: var(--clay);
+            z-index: -1;
+            transform: rotate(-2deg);
+            border-radius: 50% 20%;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--charcoal);
+        }
+
+        /* Profile Card */
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 40px 10px 40px 10px; /* Quirky asymmetrical corners */
+            border: 3px solid var(--sage);
+            box-shadow: 10px 10px 0px var(--sage);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0px var(--sage);
+        }
+
+        /* Links & Buttons */
+        .links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: white;
+            background: var(--dark-sage);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background: var(--cream);
+            color: var(--dark-sage);
+            border: 2px solid var(--dark-sage);
+        }
+
+        .btn.github {
+            background: var(--clay);
+        }
+
+        .btn.github:hover {
+            background: var(--cream);
+            color: var(--clay);
+            border: 2px solid var(--clay);
+        }
+
+        /* Interaction feedback */
+        #interactive-area {
+            margin-top: 3rem;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .wiggle {
+            display: inline-block;
+            font-size: 2rem;
+            transition: transform 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .links { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blob" style="width: 300px; height: 300px; top: -50px; right: -50px;"></div>
+    <div class="blob" style="width: 200px; height: 200px; bottom: 50px; left: -50px; background: var(--clay);"></div>
+
+    <div class="container">
+        <header>
+            <h1 id="name-header">ella ilan</h1>
+            <p class="tagline"></p>
+        </header>
+
+        <main class="card">
+            <h2>hi there 🌿</h2>
+            <p>i'm ella, a student at the univeristy of british columbia studying data science and economics.</p>
+            <p>welcome to my corner of the internet!</p>
+            
+            <div class="links">
+                <a href="https://www.linkedin.com/in/ellailan/" target="_blank" class="btn">LinkedIn</a>
+                <a href="https://github.com/ellailan" target="_blank" class="btn github">GitHub</a>
+            </div>
+        </main>
+
+        <div id="interactive-area">
+            <span class="wiggle">🌱</span>
+            <p style="font-size: 0.8rem; color: var(--dark-sage);">click here!</p>
+        </div>
+    </div>
+
+    <script>
+        // Quirky interactivity: The Sprout Clicker
+        const sprout = document.querySelector('.wiggle');
+        const container = document.querySelector('.container');
+        const emojis = ['🌿', '🍃', '✨', '🌻', '🍵'];
+
+        sprout.addEventListener('click', () => {
+            // Wiggle animation
+            sprout.style.transform = 'scale(1.5) rotate(20deg)';
+            setTimeout(() => sprout.style.transform = 'scale(1) rotate(0deg)', 200);
+
+            // Spawn a random emoji
+            const leaf = document.createElement('span');
+            leaf.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            leaf.style.position = 'fixed';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.top = '100vh';
+            leaf.style.fontSize = '2rem';
+            leaf.style.transition = 'all 2s linear';
+            leaf.style.zIndex = '100';
+            
+            document.body.appendChild(leaf);
+
+            // Animate it floating up
+            setTimeout(() => {
+                leaf.style.top = '-10vh';
+                leaf.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(360deg)`;
+                leaf.style.opacity = '0';
+            }, 100);
+
+            // Cleanup
+            setTimeout(() => leaf.remove(), 2100);
+        });
+
+        // Hover effect on the name
+        const nameHeader = document.getElementById('name-header');
+        nameHeader.addEventListener('mouseover', () => {
+            nameHeader.style.transform = 'skewX(-5deg)';
+        });
+        nameHeader.addEventListener('mouseout', () => {
+            nameHeader.style.transform = 'skewX(0deg)';
+        });
+    </script>
+</body>
+</html>
