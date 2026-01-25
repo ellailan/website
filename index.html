@@ -26,12 +26,22 @@
         }
 
         body {
-            background: var(--sage);
-            background-image: radial-gradient(var(--light-sage) 2px, transparent 2px);
-            background-size: 30px 30px; 
-            min-height: 100vh;
-            line-height: 1.4;
-            padding: 2rem 1rem;
+            background-color: var(--sage);
+    background-image: 
+        /* First set of dots */
+        radial-gradient(var(--light-sage) 2px, transparent 2px),
+        /* Second set of dots (slightly lighter/different for color offset) */
+        radial-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+        /* Subtle vertical color shift */
+        linear-gradient(180deg, var(--sage) 0%, #8da277 100%);
+    
+    /* This creates the staggered look */
+    background-position: 0 0, 15px 15px, 0 0;
+    background-size: 30px 30px, 30px 30px, 100% 100%;
+    
+    min-height: 100vh;
+    line-height: 1.4;
+    padding: 2rem 1rem;
         }
 
         .container {
@@ -46,7 +56,7 @@
         header {
             text-align: center;
             transform: rotate(-2deg); /* Constant slight tilt */
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
 
        .scramble-container {
@@ -63,7 +73,7 @@
             paint-order: stroke fill;
             text-shadow: 6px 6px 0px var(--dark-sage);
             transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            text-transform: lowercase;
+            
         }
 
         /* The "Scramble" effect on hover */
@@ -124,7 +134,6 @@
             color: var(--white);
             font-size: 2.5rem; 
             padding: 4px 14px;
-            text-transform: lowercase;
             border: 3px solid var(--black); 
             box-shadow: 4px 4px 0px var(--black);
             transform: rotate(-1deg);
@@ -304,7 +313,6 @@
     color: var(--clay); /* Using your accent color for titles */
     font-size: 1.6rem;
     margin-bottom: 15px;
-    text-transform: lowercase;
 }
 
 .overlay-text p {
@@ -341,7 +349,7 @@
         <section id="projects">
     <section id="projects">
     <div class="projects-header">
-        <span>some projects</span>
+        <span>what i'm up to!</span>
     </div>
     
     <div class="projects-grid">
@@ -349,16 +357,6 @@
 </section>
 
     <div class="projects-grid">
-
-        <a href="https://instagram.com/widsubc" target="_blank" class="project-link">
-            <article class="project-card" style="transform: rotate(-1.5deg);">
-                <div class="project-img-placeholder">
-            <img src="assets/wids.png" alt="WiDS@UBC" class="project-img">
-                </div>
-                <h3>wids-stagram</h3>
-                <p>> designing social media content for wids@ubc and connecting with women in data science across campus <3 </p>
-            </article>
-        </a>
 
         <a href="https://github.com/UBC-Solar/data_analysis/blob/localization_with_acceleration/v4/localization_with_acceleration/acceleration.ipynb" target="_blank" class="project-link">
             <article class="project-card" style="transform: rotate(-1.5deg);">
@@ -389,6 +387,16 @@
     </article>
 </a>
 
+        <a href="https://instagram.com/widsubc" target="_blank" class="project-link">
+            <article class="project-card" style="transform: rotate(-1.5deg);">
+                <div class="project-img-placeholder">
+            <img src="assets/wids.png" alt="WiDS@UBC" class="project-img">
+                </div>
+                <h3>wids-stagram</h3>
+                <p>> designing social media content for wids@ubc and connecting with women in data science across campus <3 </p>
+            </article>
+        </a>
+
     </div>
 
     <section id="portfolio">
@@ -400,8 +408,8 @@
             <img src="portfolio/dsci100.png" alt="DSCI 100 Study Social">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
-                    <h3>DSCI 100 Study Social</h3>
-                    <p>An Instagram post for WiDS@UBC which brought in 30k views and 100+ students for a review session. </p>
+                    <h3>DSCI100 Study Social</h3>
+                    <p>An Instagram post for WiDS@UBC which brought in 30k views and 100+ students for a midterm review session for DSCI100: Introduction to Data Science. </p>
                 </div>
             </div>
         </div>
@@ -417,14 +425,45 @@
         </div>
 
         <div class="portfolio-item">
-            <img src="portfolio/youcode.png" alt="Portfolio 3">
+            <img src="portfolio/youcode.png" alt="YouCode brandkit">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
                     <h3>YouCode 2026 Brand Kit</h3>
-                    <p>A brand kit, mascot, and assets for UBC's YouCode hackathon.</p>
+                    <p>A brand kit, mascot, and assets for UBC's YouCode hackathon's promotional material. Designed in Figma. </p>
                 </div>
             </div>
         </div>
+
+        <div class="portfolio-item">
+            <img src="portfolio/tcf.png" alt="Technical Career Fair">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>UBC's Technical Career Fair</h3>
+                    <p>An Instagram post for WiDS@UBC to promote our annual career fair!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="portfolio/datainthewild.png" alt="Data in the Wild">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>Data in the Wild</h3>
+                    <p>An Instagram post for WiDS@UBC to promote an Enviornmental Science workshop.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="portfolio/imagineday.png" alt="Imagine Day">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>WiDS at Imagine Day 2025</h3>
+                    <p>An Instagram post for WiDS@UBC to promote our booth at UBC's annual welcome-back fair, Imagine Day.</p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </section>
 
