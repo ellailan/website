@@ -25,32 +25,41 @@
             font-family: 'Arial Black', 'Gadget', sans-serif;
         }
 
-        body {
-            background-color: var(--sage);
+body {
+    /* Base color + subtle vertical fade */
+    background-color: var(--sage);
     background-image: 
-        /* First set of dots */
         radial-gradient(var(--light-sage) 2px, transparent 2px),
-        /* Second set of dots (slightly lighter/different for color offset) */
         radial-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px),
-        /* Subtle vertical color shift */
         linear-gradient(180deg, var(--sage) 0%, #8da277 100%);
     
-    /* This creates the staggered look */
+    /* This offsets the dots so they aren't in a perfect grid */
     background-position: 0 0, 15px 15px, 0 0;
     background-size: 30px 30px, 30px 30px, 100% 100%;
     
     min-height: 100vh;
     line-height: 1.4;
-    padding: 2rem 1rem;
-        }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 5rem;
-        }
+    /* MARGIN FOR THE WHOLE WEBSITE */
+    /* Increased top/bottom to 5rem and left/right to 10% for a "framed" look */
+    padding: 5rem 10%; 
+}
+
+.container {
+    /* Narrowing the container makes the side margins look much larger on desktop */
+    max-width: 800px; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem; /* Increased gap between sections for more room */
+}
+
+/* For mobile phones, we decrease the margin slightly so it doesn't look too squished */
+@media (max-width: 600px) {
+    body {
+        padding: 2rem 5%;
+    }
+}
 
         /* BOLD HEADER */
         header {
@@ -256,71 +265,123 @@
         }
 
         /* PORTFOLIO SECTION */
-/* PORTFOLIO SECTION - 4:5 Portrait Style */
+/* 2. PORTFOLIO SECTION */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Small Icons */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2.5rem;
     margin-bottom: 5rem;
+}
+
+.portfolio-wrapper {
+    display: block;
+    cursor: default; /* Removes the "hand" pointer since it's no longer a link */
 }
 
 .portfolio-item {
     position: relative;
-    /* This forces the 4:5 Instagram Portrait ratio */
-    aspect-ratio: 4 / 5; 
-    border: 6px solid var(--dark-sage);
-    box-shadow: 12px 12px 0px var(--dark-sage);
+    aspect-ratio: 4 / 5; /* Instagram Portrait */
+    border: 4px solid var(--dark-sage);
+    box-shadow: 8px 8px 0px var(--dark-sage);
     overflow: hidden;
     background: var(--dark-sage);
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease;
+}
+
+/* Maintain the "Click" animation even without a link */
+.portfolio-wrapper:hover .portfolio-item {
+    transform: translate(-3px, -3px);
+    box-shadow: 12px 12px 0px var(--dark-sage);
+}
+
+.portfolio-wrapper:active .portfolio-item {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0px var(--dark-sage);
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the photo fills the 4:5 box perfectly */
+    object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
 }
 
-/* THE HOVER OVERLAY */
+/* OVERLAY */
 .portfolio-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(42, 42, 42, 0.85); /* Slightly darker for better text legibility */
+    background: rgba(42, 42, 42, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
+.portfolio-wrapper:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 42, 42, 0.9); /* Dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    opacity: 0; /* Hidden */
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Allows clicks to pass through if needed */
+}
+
+/* SHOW OVERLAY ON HOVER */
 .portfolio-item:hover .portfolio-overlay {
-    opacity: 1; /* Shows the text and darkens image on hover */
+    opacity: 1; /* Fade in */
 }
 
-.portfolio-item:hover img {
-    transform: scale(1.08); /* Subtle zoom for depth */
-}
-
-/* OVERLAY TEXT STYLING */
+/* TEXT INSIDE OVERLAY */
 .overlay-text h3 {
-    color: var(--clay); /* Using your accent color for titles */
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+    color: var(--clay);
+    font-size: 1rem;
+    margin-bottom: 5px;
 }
 
 .overlay-text p {
     color: var(--cream);
     font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+/* TEXT */
+.overlay-text h3 {
+    color: var(--clay);
     font-size: 1rem;
-    line-height: 1.4;
-    margin: 0;
+    margin-bottom: 5px;
+}
+
+.overlay-text p {
+    color: var(--cream);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    line-height: 1.2;
 }
     </style>
 </head>
@@ -336,9 +397,9 @@
 
         <main class="card">
             <h2>hello there! 🌿</h2>
-            <p>> i'm a student at the university of british columbia.</p>
-            <p>> i'm majoring in data science with a minor in economics!</p>
-            <p>> welcome to my corner of the web.</p>
+            <p>> i'm a student at the university of british columbia, majoring in data science with a minor in economics!</p>
+            <p>> you can find me on campus sipping an oat flat white at the Great Dane or destroying a bag of gummy worms in IKB.</p>
+            <p>> welcome to my corner of the web <3</p>
             
             <div class="links">
                 <a href="https://www.linkedin.com/in/ellailan/" target="_blank" class="btn">LINKEDIN</a>
@@ -349,7 +410,7 @@
         <section id="projects">
     <section id="projects">
     <div class="projects-header">
-        <span>what i'm up to!</span>
+        <span>some recent projects!</span>
     </div>
     
     <div class="projects-grid">
@@ -364,16 +425,19 @@
             <img src="assets/radiusofcurve.png" alt="UBC Solar Graph" class="project-img">
                 </div>
                 <h3>UBC Solar</h3>
-                <p>> creating models in python for ubc's solar-powered race-car design team </p>
+                <p>> part of my work for ubc's solar-powered race-car design team, UBC Solar </p>
+                <p>> creating models in python using telemetry data to optimize racecar driving</p>
             </article>
         </a>
 
         <a href="https://github.com/ellailan/student-engagement-survey" target="_blank" class="project-link">
-            <article class="project-card" style="transform: rotate(1.5deg);">
-                <div class="project-img-placeholder">📝</div>
+            <article class="project-card" style="transform: rotate(-1.5deg);">
+                <div class="project-img-placeholder">
+            <img src="assets/likertses.png" alt="SES Graph" class="project-img">
+                </div>
                 <h3>the SES</h3>
-                <p>> part of my work for ubc's ams as a research coordinator</p>
-                <p>> analyzing student engagement + uncovering insights about ubc's student experience</p>
+                <p>> part of my work for ubc's ams as a research coordinator </p>
+                <p>> analyzing student engagement + uncovering insights about ubc's student experience for advocady </p>
             </article>
         </a>
 
@@ -383,7 +447,7 @@
             <img src="assets/decide.png" alt="Rise and Decide Project Screenshot" class="project-img">
         </div>
         <h3>rise-and-decide</h3>
-        <p>> a decision-making tool built using ai tools as part of a two-hour hackathon</p>
+        <p>> a decision-making tool built using AI tools as part of a two-hour hackathon</p>
     </article>
 </a>
 
@@ -419,7 +483,7 @@
             <div class="portfolio-overlay">
                 <div class="overlay-text">
                     <h3>Microsoft Office Tour</h3>
-                    <p>An Instagram post for WiDS@UBC, in collaboration with Microsoft Vancouver to promote an exclusive office tour.</p>
+                    <p>An Instagram post for WiDS@UBC, in collaboration with Microsoft Vancouver to promote an exclusive office tour. 28k views.</p>
                 </div>
             </div>
         </div>
@@ -444,7 +508,18 @@
             </div>
         </div>
 
+
         <div class="portfolio-item">
+            <img src="portfolio/imagineday.png" alt="Imagine Day">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>WiDS at Imagine Day 2025</h3>
+                    <p>An Instagram post for WiDS@UBC to promote our booth at UBC's annual welcome-back fair, Imagine Day. 25k views.</p>
+                </div>
+            </div>
+        </div>
+
+                <div class="portfolio-item">
             <img src="portfolio/datainthewild.png" alt="Data in the Wild">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
@@ -455,11 +530,22 @@
         </div>
 
         <div class="portfolio-item">
-            <img src="portfolio/imagineday.png" alt="Imagine Day">
+            <img src="portfolio/cancwic.png" alt="CAN-CWIC">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
-                    <h3>WiDS at Imagine Day 2025</h3>
-                    <p>An Instagram post for WiDS@UBC to promote our booth at UBC's annual welcome-back fair, Imagine Day.</p>
+                    <h3>CAN-CWIC 2025</h3>
+                    <p>An Instagram post for WiDS@UBC to promote the Canadian Women in Computing Conference.</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="portfolio-item">
+            <img src="portfolio/alumnight.png" alt="AlumNight">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>AlumNight 2025</h3>
+                    <p>An Instagram post for WiDS@UBC to promote our flagship alumni Networking event, AlumNight.</p>
                 </div>
             </div>
         </div>
