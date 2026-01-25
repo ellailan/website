@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ella ilan</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+
     <style>
         :root {
             --sage: #9CAF88;
             --dark-sage: #3D4F31; 
             --cream: #F9F7F0;
-            --clay: #D68C7A;
+            --clay: #e08b8e;
             --white: #ffffff;
             --black: #2A2A2A;
             --light-sage: #bdd1a7;
@@ -243,6 +245,75 @@
             .card { padding: 1.5rem; border-radius: 20px; }
             h1 { font-size: 3rem; }
         }
+
+        /* PORTFOLIO SECTION */
+/* PORTFOLIO SECTION - 4:5 Portrait Style */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.portfolio-item {
+    position: relative;
+    /* This forces the 4:5 Instagram Portrait ratio */
+    aspect-ratio: 4 / 5; 
+    border: 6px solid var(--dark-sage);
+    box-shadow: 12px 12px 0px var(--dark-sage);
+    overflow: hidden;
+    background: var(--dark-sage);
+    transition: transform 0.2s ease-in-out;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the photo fills the 4:5 box perfectly */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* THE HOVER OVERLAY */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 42, 42, 0.85); /* Slightly darker for better text legibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1; /* Shows the text and darkens image on hover */
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.08); /* Subtle zoom for depth */
+}
+
+/* OVERLAY TEXT STYLING */
+.overlay-text h3 {
+    color: var(--clay); /* Using your accent color for titles */
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-transform: lowercase;
+}
+
+.overlay-text p {
+    color: var(--cream);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+}
     </style>
 </head>
 <body>
@@ -270,7 +341,7 @@
         <section id="projects">
     <section id="projects">
     <div class="projects-header">
-        <span>current projects!</span>
+        <span>some projects</span>
     </div>
     
     <div class="projects-grid">
@@ -278,14 +349,24 @@
 </section>
 
     <div class="projects-grid">
-        
-        <a href="https://www.instagram.com/widsubc/" target="_blank" class="project-link">
+
+        <a href="https://instagram.com/widsubc" target="_blank" class="project-link">
             <article class="project-card" style="transform: rotate(-1.5deg);">
                 <div class="project-img-placeholder">
-            <img src="widsfeed.png" alt="WIDS UBC Instagram Screenshot" class="project-img">
+            <img src="assets/wids.png" alt="WiDS@UBC" class="project-img">
                 </div>
                 <h3>wids-stagram</h3>
-                <p>> designing cute posts and connecting with women in data science at ubc <3 </p>
+                <p>> designing social media content for wids@ubc and connecting with women in data science across campus <3 </p>
+            </article>
+        </a>
+
+        <a href="https://github.com/UBC-Solar/data_analysis/blob/localization_with_acceleration/v4/localization_with_acceleration/acceleration.ipynb" target="_blank" class="project-link">
+            <article class="project-card" style="transform: rotate(-1.5deg);">
+                <div class="project-img-placeholder">
+            <img src="assets/radiusofcurve.png" alt="UBC Solar Graph" class="project-img">
+                </div>
+                <h3>UBC Solar</h3>
+                <p>> creating models in python for ubc's solar-powered race-car design team </p>
             </article>
         </a>
 
@@ -301,7 +382,7 @@
         <a href="https://github.com/ellailan/rise-and-decide" target="_blank" class="project-link">
     <article class="project-card" style="transform: rotate(-0.5deg);">
         <div class="project-img-placeholder">
-            <img src="riseanddecide.png" alt="Rise and Decide Project Screenshot" class="project-img">
+            <img src="assets/decide.png" alt="Rise and Decide Project Screenshot" class="project-img">
         </div>
         <h3>rise-and-decide</h3>
         <p>> a decision-making tool built using ai tools as part of a two-hour hackathon</p>
@@ -309,6 +390,44 @@
 </a>
 
     </div>
+
+    <section id="portfolio">
+    <div class="projects-header">
+        <span>my visual portfolio</span>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="portfolio/dsci100.png" alt="DSCI 100 Study Social">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>DSCI 100 Study Social</h3>
+                    <p>An Instagram post for WiDS@UBC which brought in 30k views and 100+ students for a review session. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="portfolio/microsoft.png" alt="Mircosoft Office Tour!">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>Microsoft Office Tour</h3>
+                    <p>An Instagram post for WiDS@UBC, in collaboration with Microsoft Vancouver to promote an exclusive office tour.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <img src="portfolio/youcode.png" alt="Portfolio 3">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>YouCode 2026 Brand Kit</h3>
+                    <p>A brand kit, mascot, and assets for UBC's YouCode hackathon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </section>
 
         <div id="interactive-area">
