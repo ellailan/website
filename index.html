@@ -160,8 +160,10 @@ body {
         /* PROJECT GRID */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Use auto-fill to prevent items from stretching to the full width */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 3rem;
+            justify-content: center; /* Centers the cards in the row */
         }
 
         .project-link {
@@ -265,13 +267,15 @@ body {
         }
 
         /* PORTFOLIO SECTION */
-/* 2. PORTFOLIO SECTION */
+
 .portfolio-grid {
     display: grid;
     /* Small Icons */
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 2.5rem;
     margin-bottom: 5rem;
+    justify-content: center
+
 }
 
 .portfolio-wrapper {
@@ -430,6 +434,17 @@ body {
             </article>
         </a>
 
+         <a href="ellailan.github.io" target="_blank" class="project-link">
+            <article class="project-card" style="transform: rotate(-1.5deg);">
+                <div class="project-img-placeholder">
+            <img src="mockup.png" alt="This Website" class="project-img">
+                </div>
+                <h3>my website</h3>
+                <p>> how meta! </p>
+                <p>> built this website using HTML and CSS</p>
+            </article>
+        </a>
+
         <a href="https://github.com/ellailan/student-engagement-survey" target="_blank" class="project-link">
             <article class="project-card" style="transform: rotate(-1.5deg);">
                 <div class="project-img-placeholder">
@@ -461,16 +476,7 @@ body {
             </article>
         </a>
 
-        <a href="ellailan.github.io" target="_blank" class="project-link">
-            <article class="project-card" style="transform: rotate(-1.5deg);">
-                <div class="project-img-placeholder">
-            <img src="mockup.png" alt="This Website" class="project-img">
-                </div>
-                <h3>my website</h3>
-                <p>> how meta! </p>
-                <p>> built this website using HTML and CSS</p>
-            </article>
-        </a>
+       
 
     </div>
 
