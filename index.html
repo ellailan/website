@@ -271,7 +271,7 @@ body {
 .portfolio-grid {
     display: grid;
     /* Small Icons */
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 2.5rem;
     margin-bottom: 5rem;
     justify-content: center
@@ -401,9 +401,9 @@ body {
 
         <main class="card">
             <h2>hello there! 🌿</h2>
-            <p>> i'm a student at the university of british columbia, majoring in data science with a minor in economics!</p>
-            <p>> you can find me on campus sipping an oat flat white at the Great Dane or destroying a bag of gummy worms in IKB.</p>
-            <p>> welcome to my corner of the web <3 </p>
+            <p>> i'm a student at the University of British Columbia in Vancouver, Canada.</p>
+            <p>> i'm majoring in Data Science with a minor in Economics! you can find me on campus destroying a bag of gummy worms in IKB while working on problem sets.</p>
+            <p>> in my free time, i love to go to concerts and discover new cafes. </p>
             
             <div class="links">
                 <a href="https://www.linkedin.com/in/ellailan/" target="_blank" class="btn">LINKEDIN</a>
@@ -441,7 +441,7 @@ body {
                 </div>
                 <h3>my website</h3>
                 <p>> how meta! </p>
-                <p>> built this website using HTML and CSS</p>
+                <p>> built and designed this website using HTML and CSS to showcase my projects and portfolio</p>
             </article>
         </a>
 
@@ -451,8 +451,8 @@ body {
             <img src="assets/likertses.png" alt="SES Graph" class="project-img">
                 </div>
                 <h3>the SES</h3>
-                <p>> part of my work for ubc's ams as a research coordinator </p>
-                <p>> analyzing student engagement + uncovering insights about ubc's student experience </p>
+                <p>> part of my work for ubc's ams as a research coordinator; rewrote UBC's student engagement survey and got almost 5000 responses! </p>
+                <p>> analyzing the data in R + uncovering insights for advocacy work </p>
             </article>
         </a>
 
@@ -462,7 +462,7 @@ body {
             <img src="assets/decide.png" alt="Rise and Decide Project Screenshot" class="project-img">
         </div>
         <h3>rise-and-decide</h3>
-        <p>> a decision-making tool built using AI tools as part of a two-hour hackathon</p>
+        <p>> a fun decision-making tool built using AI tools as part of a two-hour hackathon</p>
     </article>
 </a>
 
@@ -472,7 +472,7 @@ body {
             <img src="assets/wids.png" alt="WiDS@UBC" class="project-img">
                 </div>
                 <h3>wids-stagram</h3>
-                <p>> designing social media content for wids@ubc and connecting with women in data science across campus <3 </p>
+                <p>> creating social media content for wids@ubc and connecting with women in data science across campus</p>
             </article>
         </a>
 
@@ -484,6 +484,8 @@ body {
     <div class="projects-header">
         <span>my visual portfolio</span>
     </div>
+
+    
     <div class="portfolio-grid">
         <div class="portfolio-item">
             <img src="portfolio/dsci100.png" alt="DSCI 100 Study Social">
@@ -491,16 +493,6 @@ body {
                 <div class="overlay-text">
                     <h3>DSCI100 Study Social</h3>
                     <p>An Instagram post for WiDS@UBC which brought in 30k views and 100+ students for a midterm review session for DSCI100: Introduction to Data Science. </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-item">
-            <img src="portfolio/microsoft.png" alt="Mircosoft Office Tour!">
-            <div class="portfolio-overlay">
-                <div class="overlay-text">
-                    <h3>Microsoft Office Tour</h3>
-                    <p>An Instagram post for WiDS@UBC, in collaboration with Microsoft Vancouver to promote an exclusive office tour. 28k views.</p>
                 </div>
             </div>
         </div>
@@ -514,6 +506,18 @@ body {
                 </div>
             </div>
         </div>
+
+
+        <div class="portfolio-item">
+            <img src="portfolio/microsoft.png" alt="Mircosoft Office Tour!">
+            <div class="portfolio-overlay">
+                <div class="overlay-text">
+                    <h3>Microsoft Office Tour</h3>
+                    <p>An Instagram post for WiDS@UBC, in collaboration with Microsoft Vancouver to promote an exclusive office tour. 28k views.</p>
+                </div>
+            </div>
+        </div>
+
 
         <div class="portfolio-item">
             <img src="portfolio/tcf.png" alt="Technical Career Fair">
@@ -536,17 +540,17 @@ body {
             </div>
         </div>
 
-                <div class="portfolio-item">
-            <img src="portfolio/datainthewild.png" alt="Data in the Wild">
+        <div class="portfolio-item">
+            <img src="portfolio/alumnight.png" alt="AlumNight">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
-                    <h3>Data in the Wild</h3>
-                    <p>An Instagram post for WiDS@UBC to promote an Enviornmental Science workshop.</p>
+                    <h3>AlumNight 2025</h3>
+                    <p>An Instagram post for WiDS@UBC to promote our flagship alumni Networking event, AlumNight.</p>
                 </div>
             </div>
         </div>
 
-        <div class="portfolio-item">
+          <div class="portfolio-item">
             <img src="portfolio/cancwic.png" alt="CAN-CWIC">
             <div class="portfolio-overlay">
                 <div class="overlay-text">
@@ -557,15 +561,6 @@ body {
         </div>
         
 
-        <div class="portfolio-item">
-            <img src="portfolio/alumnight.png" alt="AlumNight">
-            <div class="portfolio-overlay">
-                <div class="overlay-text">
-                    <h3>AlumNight 2025</h3>
-                    <p>An Instagram post for WiDS@UBC to promote our flagship alumni Networking event, AlumNight.</p>
-                </div>
-            </div>
-        </div>
 
         <div class="portfolio-item">
             <img src="portfolio/hoka.png" alt="WiDS@UBC x HOKA Run Club">
@@ -591,7 +586,7 @@ body {
 
     <script>
         const sprout = document.getElementById('sprout');
-        const emojis = ['🍀', '🍏', '🪴', '💚', '🌳', '🥑'];
+        const emojis = ['🍀', '💗', '🪴', '💚', '🌸', '🌷'];
 
         sprout.addEventListener('click', () => {
             // Chaotic wiggle
@@ -603,7 +598,7 @@ body {
             leaf.style.left = Math.random() * 100 + 'vw';
             leaf.style.top = '100vh';
             leaf.style.fontSize = '3rem';
-            leaf.style.transition = 'all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            leaf.style.transition = 'all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
             leaf.style.zIndex = '1000';
             document.body.appendChild(leaf);
 
